@@ -17,10 +17,10 @@ const moviesSchema = new Schema(
       type:String
     },
     year:{
-      type:number
+      type:Number
     },
     duration:{
-      type:number
+      type:Number
     },
     image: {
       type: String,

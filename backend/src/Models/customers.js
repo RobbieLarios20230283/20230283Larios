@@ -27,7 +27,7 @@ const customersSchema = new Schema(
     },
 
     isVerified: {
-      type: boolean,
+      type: Boolean,
       require: true,
     }
   },

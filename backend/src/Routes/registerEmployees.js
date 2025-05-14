@@ -1,5 +1,5 @@
 import express from "express";
-import registerEmployeesController from "../Controllers/employeeControllers";
+import registerEmployeesController from "../Controllers/registerEmployeesController.js";
 const router = express.Router();
 
 router.route("/").post(registerEmployeesController.register);

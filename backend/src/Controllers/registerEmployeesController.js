@@ -9,15 +9,7 @@ const registerEmployeesController = {};
 registerEmployeesController.register = async (req, res) => {
 
   const {
-    name, 
-        lastName,
-         birthday, 
-         email,
-          password, 
-          telephone,
-           dui, 
-           issNumber, 
-           hireDate  ,
+    name,email,password,phone,address,position,hireDate,salary,
     isVerified
   } = req.body;
 
@@ -31,15 +23,8 @@ registerEmployeesController.register = async (req, res) => {
 
     const newEmployee = new Employee({
       
-      name, 
-        lastName,
-         birthday, 
-         email,
-          password: passwordHash, 
-          telephone,
-           dui, 
-           issNumber, 
-           hireDate  
+      name,email,password:passwordHash
+      ,phone,address,position,hireDate,salary,isVerified
     });
 
     await newEmployee.save();

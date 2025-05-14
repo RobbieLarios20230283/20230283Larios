@@ -1,4 +1,4 @@
-//Array de metodos (C R U D)
+
 const employeeController = {};
 import employeeModel from "../Models/employee.js";
 
@@ -8,8 +8,8 @@ employeeController.getemployee = async (req, res) => {
 };
 
 employeeController.createemployee = async (req, res) => {
-  const { name, lastName, birthday, email, password, telephone, dui, issNumber, hireDate } = req.body;
-  const newemployee= new employeeModel({ name, lastName, birthday, email, password, telephone, dui, issNumber, hireDate });
+  const { name,email,password,phone,address,position,hireDate,salary } = req.body;
+  const newemployee= new employeeModel({ name,email,password,phone,address,position,hireDate,salary });
   await newemployee.save();
   res.json({ message: "employee save" });
 };
@@ -26,24 +26,15 @@ const deletedemployee = await employeeModel.findByIdAndDelete(req.params.id);
 // UPDATE
 employeeController.updateemployee = async (req, res) => {
   // Solicito todos los valores
-  const { name, lastName, birthday, email, password, telephone, dui, issNumber, hireDate  } = req.body;
+  const { name,email,password,phone,address,position,hireDate,salary  } = req.body;
   // Actualizo
   await employeeModel.findByIdAndUpdate(
     req.params.id,
     {
-        name, 
-        lastName,
-         birthday, 
-         email,
-          password, 
-          telephone,
-           dui, 
-           issNumber, 
-           hireDate  
+        name,email,password,phone,address,position,hireDate,salary 
     },
     { new: true }
   );
-  // muestro un mensaje que todo se actualizo
   res.json({ message: "employee update" });
 };
 
